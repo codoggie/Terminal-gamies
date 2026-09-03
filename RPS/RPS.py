@@ -10,7 +10,15 @@ class Choices(Enum):
 
 
 def main():
-    usr_input = input("Enter a choice (rock, paper, scissors): ").lower()
+        # Clears screen on Windows ('cls') or Unix/Linux/macOS ('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    print("\n-----------------------------")
+    print("\n--------START  GAME----------")
+    print("\n-----------------------------")
+    print("You know the rules, press q to quit")
+
+    usr_input = input("\nEnter a choice (rock, paper, scissors): ").lower()
     
 # using try allows for attempting an action and taking a different path if the action is invalid. In this case, the action is defined from the usr_input variable against the Choices class
     try:
