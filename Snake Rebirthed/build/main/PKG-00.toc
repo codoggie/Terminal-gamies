@@ -1,5 +1,5 @@
 ('C:\\Users\\codog\\Downloads\\Snake Rebirthed - '
- 'Copy\\src\\build\\main\\main.pkg',
+ 'Copy\\src\\src\\build\\main\\main.pkg',
  {'BINARY': True,
   'DATA': True,
   'EXECUTABLE': True,
@@ -12,27 +12,27 @@
  [('pyi-contents-directory _internal', '', 'OPTION'),
   ('PYZ-00.pyz',
    'C:\\Users\\codog\\Downloads\\Snake Rebirthed - '
-   'Copy\\src\\build\\main\\PYZ-00.pyz',
+   'Copy\\src\\src\\build\\main\\PYZ-00.pyz',
    'PYZ'),
   ('struct',
    'C:\\Users\\codog\\Downloads\\Snake Rebirthed - '
-   'Copy\\src\\build\\main\\localpycs\\struct.pyc',
+   'Copy\\src\\src\\build\\main\\localpycs\\struct.pyc',
    'PYMODULE'),
   ('pyimod01_archive',
    'C:\\Users\\codog\\Downloads\\Snake Rebirthed - '
-   'Copy\\src\\build\\main\\localpycs\\pyimod01_archive.pyc',
+   'Copy\\src\\src\\build\\main\\localpycs\\pyimod01_archive.pyc',
    'PYMODULE'),
   ('pyimod02_importers',
    'C:\\Users\\codog\\Downloads\\Snake Rebirthed - '
-   'Copy\\src\\build\\main\\localpycs\\pyimod02_importers.pyc',
+   'Copy\\src\\src\\build\\main\\localpycs\\pyimod02_importers.pyc',
    'PYMODULE'),
   ('pyimod03_ctypes',
    'C:\\Users\\codog\\Downloads\\Snake Rebirthed - '
-   'Copy\\src\\build\\main\\localpycs\\pyimod03_ctypes.pyc',
+   'Copy\\src\\src\\build\\main\\localpycs\\pyimod03_ctypes.pyc',
    'PYMODULE'),
   ('pyimod04_pywin32',
    'C:\\Users\\codog\\Downloads\\Snake Rebirthed - '
-   'Copy\\src\\build\\main\\localpycs\\pyimod04_pywin32.pyc',
+   'Copy\\src\\src\\build\\main\\localpycs\\pyimod04_pywin32.pyc',
    'PYMODULE'),
   ('pyiboot01_bootstrap',
    'C:\\Users\\codog\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\PyInstaller\\loader\\pyiboot01_bootstrap.py',
@@ -41,7 +41,7 @@
    'C:\\Users\\codog\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_inspect.py',
    'PYSOURCE'),
   ('main',
-   'C:\\Users\\codog\\Downloads\\Snake Rebirthed - Copy\\src\\main.py',
+   'C:\\Users\\codog\\Downloads\\Snake Rebirthed - Copy\\src\\src\\main.py',
    'PYSOURCE'),
   ('python314.dll',
    'C:\\Users\\codog\\AppData\\Local\\Programs\\Python\\Python314\\python314.dll',
@@ -84,7 +84,7 @@
    'BINARY'),
   ('base_library.zip',
    'C:\\Users\\codog\\Downloads\\Snake Rebirthed - '
-   'Copy\\src\\build\\main\\base_library.zip',
+   'Copy\\src\\src\\build\\main\\base_library.zip',
    'DATA')],
  'python314.dll',
  False,

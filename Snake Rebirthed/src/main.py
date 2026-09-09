@@ -4,7 +4,12 @@ import storage, display, engine, scoreboard
 if sys.platform == "win32":
     import msvcrt
     def read_raw_keystroke():
-        if msvcrt.kbhit(): return msvcrt.getch()
+        if msvcrt.kbhit():
+            try:
+                res = msvcrt.getch()
+                return res
+            except:
+                return None
         return None
 else:
     import termios, tty, select
@@ -32,15 +37,14 @@ class GameController:
     def read_keyboard_input(self, inst=None):
         k = read_raw_keystroke()
         if not k: return None
-        if k == b'\x1d': return 'TOGGLE_CON'
-        kl = k.lower()
-        if kl in [b'\x00', b'\xe0']:
-            if sys.platform == "win32":
-                import msvcrt
+        if k == b'=': return 'TOGGLE_CON'
+        if k in [b'\x00', b'\xe0']:
+            if sys.platform == "win32" and msvcrt.kbhit():
                 k = msvcrt.getch().lower()
                 m = {b'h': 'UP', b'p': 'DOWN', b'k': 'LEFT', b'm': 'RIGHT'}
                 if k in m and inst: inst.change_direction(m[k])
             return None
+        kl = k.lower()
         if kl == b'\x1b': return 'ESC'
         if kl in (b'\r', b'\n'): return 'ENTER'
         if kl == b' ':
@@ -79,7 +83,10 @@ class GameController:
         while self.dev_mode_active:
             char = read_raw_keystroke()
             if char:
-                if char == b'\r' or char == b'\n':
+                if char == b'=' or char == b'\x1b':
+                    self.dev_mode_active = False
+                    display.draw_static_game_frame(); return
+                elif char in (b'\r', b'\n'):
                     cmd_string = self.command_input.strip().lower()
                     if cmd_string == "exit":
                         self.dev_mode_active = False
@@ -110,10 +117,10 @@ class GameController:
                                     self.console_logs.append(f"[SUCCESS]: Constant combo points set to {val}")
                                 elif action == "setlevel" and 1 <= val <= 10:
                                     inst.level = val; inst.items_eaten = 0
-                                    self.console_logs.append(f"[SUCCESS]: Active level tier transformed to {val}")
+                                    self.console_logs.append(f"[SUCCESS]: Level transformed to {val}")
                                 elif action == "setpoints" and val >= 0:
                                     inst.experience = val; inst.validate_vitals()
-                                    self.console_logs.append(f"[SUCCESS]: Experience points set to {val}")
+                                    self.console_logs.append(f"[SUCCESS]: Points set to {val}")
                                 elif action == "setexpfactor" and 2 <= val <= 6:
                                     inst.exp_factor = float(val); storage.save_cheat_modifiers(inst.exp_factor, inst.combo_factor)
                                     self.console_logs.append(f"[SUCCESS]: Exp multiplier scaled to {val}x")
@@ -137,7 +144,7 @@ class GameController:
                 elif ord(char) in (8, 127):
                     self.command_input = self.command_input[:-1]
                     display.draw_dev_console(self.console_logs, self.command_input, self.help_mode_active, inst)
-                elif char != b'\x1d':
+                else:
                     try:
                         decoded = char.decode('utf-8')
                         if len(decoded) == 1 and ord(decoded) >= 32:
@@ -180,13 +187,13 @@ class GameController:
 
     def run_game_over_protocol(self, score):
         top = storage.load_data()["global_leaderboard"]
-        display.draw_game_over_screen(score, top["high_score"] if top else score)
+        display.draw_game_over_screen(score, top[0]["high_score"] if top else score)
         while True:
             k = read_raw_keystroke()
             if k:
                 if k.lower() == b' ': self.run_gameplay_core(); return
                 if k.lower() == b'\x1b': return
-            time.sleep(0.005)
+            time.sleep(0.01)
 
     def master_runtime_loop(self):
         display.boot_sequence()

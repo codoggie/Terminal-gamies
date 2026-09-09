@@ -1,6 +1,21 @@
 {
-    "global_leaderboard": [],
-    "session_runs_log": [],
+    "global_leaderboard": [
+        {
+            "username": "codog",
+            "high_score": 1860,
+            "max_level": 7,
+            "last_updated": "2026-09-09 13:33:23"
+        }
+    ],
+    "session_runs_log": [
+        {
+            "username": "codog",
+            "score": 1860,
+            "level": 7,
+            "seconds": 105,
+            "date": "2026-09-09 13:33:23"
+        }
+    ],
     "developer_profiles": {
         "saved_exp_factor": 1.0,
         "saved_combo_factor": 1.0
