@@ -1,4 +1,5 @@
-('C:\\Users\\codog\\Downloads\\Snake Rebirthed\\build\\main\\main.pkg',
+('C:\\Users\\codog\\Downloads\\Snake Rebirthed - '
+ 'Copy\\src\\build\\main\\main.pkg',
  {'BINARY': True,
   'DATA': True,
   'EXECUTABLE': True,
@@ -10,27 +11,28 @@
   'SYMLINK': False},
  [('pyi-contents-directory _internal', '', 'OPTION'),
   ('PYZ-00.pyz',
-   'C:\\Users\\codog\\Downloads\\Snake Rebirthed\\build\\main\\PYZ-00.pyz',
+   'C:\\Users\\codog\\Downloads\\Snake Rebirthed - '
+   'Copy\\src\\build\\main\\PYZ-00.pyz',
    'PYZ'),
   ('struct',
-   'C:\\Users\\codog\\Downloads\\Snake '
-   'Rebirthed\\build\\main\\localpycs\\struct.pyc',
+   'C:\\Users\\codog\\Downloads\\Snake Rebirthed - '
+   'Copy\\src\\build\\main\\localpycs\\struct.pyc',
    'PYMODULE'),
   ('pyimod01_archive',
-   'C:\\Users\\codog\\Downloads\\Snake '
-   'Rebirthed\\build\\main\\localpycs\\pyimod01_archive.pyc',
+   'C:\\Users\\codog\\Downloads\\Snake Rebirthed - '
+   'Copy\\src\\build\\main\\localpycs\\pyimod01_archive.pyc',
    'PYMODULE'),
   ('pyimod02_importers',
-   'C:\\Users\\codog\\Downloads\\Snake '
-   'Rebirthed\\build\\main\\localpycs\\pyimod02_importers.pyc',
+   'C:\\Users\\codog\\Downloads\\Snake Rebirthed - '
+   'Copy\\src\\build\\main\\localpycs\\pyimod02_importers.pyc',
    'PYMODULE'),
   ('pyimod03_ctypes',
-   'C:\\Users\\codog\\Downloads\\Snake '
-   'Rebirthed\\build\\main\\localpycs\\pyimod03_ctypes.pyc',
+   'C:\\Users\\codog\\Downloads\\Snake Rebirthed - '
+   'Copy\\src\\build\\main\\localpycs\\pyimod03_ctypes.pyc',
    'PYMODULE'),
   ('pyimod04_pywin32',
-   'C:\\Users\\codog\\Downloads\\Snake '
-   'Rebirthed\\build\\main\\localpycs\\pyimod04_pywin32.pyc',
+   'C:\\Users\\codog\\Downloads\\Snake Rebirthed - '
+   'Copy\\src\\build\\main\\localpycs\\pyimod04_pywin32.pyc',
    'PYMODULE'),
   ('pyiboot01_bootstrap',
    'C:\\Users\\codog\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\PyInstaller\\loader\\pyiboot01_bootstrap.py',
@@ -38,7 +40,9 @@
   ('pyi_rth_inspect',
    'C:\\Users\\codog\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_inspect.py',
    'PYSOURCE'),
-  ('main', 'C:\\Users\\codog\\Downloads\\Snake Rebirthed\\main.py', 'PYSOURCE'),
+  ('main',
+   'C:\\Users\\codog\\Downloads\\Snake Rebirthed - Copy\\src\\main.py',
+   'PYSOURCE'),
   ('python314.dll',
    'C:\\Users\\codog\\AppData\\Local\\Programs\\Python\\Python314\\python314.dll',
    'BINARY'),
@@ -50,9 +54,6 @@
    'EXTENSION'),
   ('_ssl.pyd',
    'C:\\Users\\codog\\AppData\\Local\\Programs\\Python\\Python314\\DLLs\\_ssl.pyd',
-   'EXTENSION'),
-  ('select.pyd',
-   'C:\\Users\\codog\\AppData\\Local\\Programs\\Python\\Python314\\DLLs\\select.pyd',
    'EXTENSION'),
   ('_socket.pyd',
    'C:\\Users\\codog\\AppData\\Local\\Programs\\Python\\Python314\\DLLs\\_socket.pyd',
@@ -69,6 +70,9 @@
   ('_bz2.pyd',
    'C:\\Users\\codog\\AppData\\Local\\Programs\\Python\\Python314\\DLLs\\_bz2.pyd',
    'EXTENSION'),
+  ('select.pyd',
+   'C:\\Users\\codog\\AppData\\Local\\Programs\\Python\\Python314\\DLLs\\select.pyd',
+   'EXTENSION'),
   ('VCRUNTIME140.dll',
    'C:\\Users\\codog\\AppData\\Local\\Programs\\Python\\Python314\\VCRUNTIME140.dll',
    'BINARY'),
@@ -79,8 +83,8 @@
    'C:\\Users\\codog\\AppData\\Local\\Programs\\Python\\Python314\\DLLs\\libssl-3.dll',
    'BINARY'),
   ('base_library.zip',
-   'C:\\Users\\codog\\Downloads\\Snake '
-   'Rebirthed\\build\\main\\base_library.zip',
+   'C:\\Users\\codog\\Downloads\\Snake Rebirthed - '
+   'Copy\\src\\build\\main\\base_library.zip',
    'DATA')],
  'python314.dll',
  False,

@@ -1,4 +1,8 @@
 {
     "global_leaderboard": [],
-    "session_runs_log": []
+    "session_runs_log": [],
+    "developer_profiles": {
+        "saved_exp_factor": 1.0,
+        "saved_combo_factor": 1.0
+    }
 }
