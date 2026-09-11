@@ -8,52 +8,57 @@ class Choices(Enum):
     PAPER = "paper"
     SCISSORS = "scissors"
 
+# Clears screen on Windows ('cls') or Unix/Linux/macOS ('clear')
+os.system('cls' if os.name == 'nt' else 'clear')
+
+print("\n-----------------------------")
+print("\n--------START  GAME----------")
+print("\n-----------------------------")
+print("You know the rules, press q to quit")
 
 def main():
-        # Clears screen on Windows ('cls') or Unix/Linux/macOS ('clear')
-    os.system('cls' if os.name == 'nt' else 'clear')
+    while True:
+        usr_input = input("\nEnter a choice (rock, paper, scissors): ").lower().strip()
 
-    print("\n-----------------------------")
-    print("\n--------START  GAME----------")
-    print("\n-----------------------------")
-    print("You know the rules, press q to quit")
-
-    usr_input = input("\nEnter a choice (rock, paper, scissors): ").lower()
+        # Handle the quit option
+        if usr_input == 'q':
+            print("\nThanks for playing! Goodbye.")
+            break
     
 # using try allows for attempting an action and taking a different path if the action is invalid. In this case, the action is defined from the usr_input variable against the Choices class
-    try:
-        usr_action = Choices(usr_input)
-    except ValueError:
-        print("\nInvalid choice! Please try again")
-        main()
+        try:
+            usr_action = Choices(usr_input)
+        except ValueError:
+            print("\nInvalid choice! Please try again")
+            continue
 
-    ai_action = random.choice(list(Choices))
+        ai_action = random.choice(list(Choices))
 
-    print(f"\nYou chose: {usr_action.value}")
-    print(f"\nAI chose: {ai_action.value}")
+        print(f"\nYou chose: {usr_action.value}")
+        print(f"\nAI chose: {ai_action.value}")
 
-    if usr_action == ai_action:
-        print(f"\n\nBoth players selected {usr_action.value}. It's a tie!")
+        if usr_action == ai_action:
+            print(f"\n\nBoth players selected {usr_action.value}. It's a tie!")
 
-    elif usr_action == Choices.ROCK:
-        if ai_action == Choices.SCISSORS:
-            print("\n\nRock smashes scissors, you win!")
+        elif usr_action == Choices.ROCK:
+            if ai_action == Choices.SCISSORS:
+                print("\n\nRock smashes scissors, you win!")
 
-        else:
-            print("\n\nPaper covers rock! you lose.")
+            else:
+                print("\n\nPaper covers rock! you lose.")
 
-    elif usr_action == Choices.PAPER:
-        if ai_action == Choices.ROCK:
-            print("\n\nPaper covers rock, you win!")
+        elif usr_action == Choices.PAPER:
+            if ai_action == Choices.ROCK:
+                print("\n\nPaper covers rock, you win!")
 
-        else:
-            print("\n\nScissors cuts paper! you lose.")
+            else:
+                print("\n\nScissors cuts paper! you lose.")
 
-    elif usr_action == Choices.SCISSORS:
-        if ai_action == Choices.PAPER:
-            print("\n\nScissors cuts paper, you win!")
+        elif usr_action == Choices.SCISSORS:
+            if ai_action == Choices.PAPER:
+                print("\n\nScissors cuts paper, you win!")
 
-        else:
-            print("\n\nRock smashes scissors! you lose.")
+            else:
+                print("\n\nRock smashes scissors! you lose.")
     
 main()
