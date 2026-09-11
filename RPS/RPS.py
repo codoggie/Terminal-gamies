@@ -25,7 +25,7 @@ def main():
         usr_action = Choices(usr_input)
     except ValueError:
         print("\nInvalid choice! Please try again")
-        return
+        main()
 
     ai_action = random.choice(list(Choices))
 
