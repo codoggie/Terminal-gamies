@@ -8,8 +8,9 @@ class Choices(Enum):
     PAPER = "paper"
     SCISSORS = "scissors"
 
-# Clears screen on Windows ('cls') or Unix/Linux/macOS ('clear')
-os.system('cls' if os.name == 'nt' else 'clear')
+def clear_screen():
+    # Clears screen on Windows ('cls') or Unix/Linux/macOS ('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 print("\n-----------------------------")
 print("\n--------START  GAME----------")
@@ -37,17 +38,25 @@ def main():
     }
 
     while True:
+        clear_screen()
+
+        print("---------------------------------------------")
+        print(f"  AI SCORE: {score['aiscore']}   |   YOUR SCORE: {score['playerscore']}")
+        print("---------------------------------------------")
+        print(" Rules: Rock, Paper, Scissors. Press 'q' to quit.")
+        print("---------------------------------------------")
+
         usr_input = input("\nEnter a choice (rock, paper, scissors): ").lower().strip()
 
         # Handle the quit option
         if usr_input == 'q':
-            print("\n----------------")
-            print("AI SCORE:")
+            print("\n-------------------")
+            print("AI's FINAL SCORE:")
             print(score["aiscore"])
-            print("----------------")
-            print("YOUR SCORE:")
+            print("-------------------")
+            print("YOUR FINAL SCORE:")
             print(score["playerscore"])
-            print("----------------")
+            print("-------------------")
             print("\nThanks for playing! Goodbye.")
             break
     
@@ -70,4 +79,5 @@ def main():
         else:
             print(f"\n{MESSAGES[ai_action]}, you lose!") 
             score["aiscore"] += 1
+        time.sleep(1.5)
 main()
