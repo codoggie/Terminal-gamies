@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 import time
 import random
@@ -17,37 +19,11 @@ print("\n-----------------------------")
 print("You know the rules, press q to quit")
 
 def main():
-    score = {
-            "aiscore": 0,
-            "playerscore": 0
-            
-            }
-    # Dictionary defines what beats what
-    BEATS = {
-        Choices.ROCK: Choices.SCISSORS,
-        Choices.PAPER: Choices.ROCK,
-        Choices.SCISSORS: Choices.PAPER
-    }
-
-    # Defines win messages
-    MESSAGES = {
-    Choices.ROCK: "Rock smashes scissors",
-    Choices.PAPER: "Paper covers rock",
-    Choices.SCISSORS: "Scissors cuts paper"
-    }
-
     while True:
         usr_input = input("\nEnter a choice (rock, paper, scissors): ").lower().strip()
 
         # Handle the quit option
         if usr_input == 'q':
-            print("\n----------------")
-            print("AI SCORE:")
-            print(score["aiscore"])
-            print("----------------")
-            print("YOUR SCORE:")
-            print(score["playerscore"])
-            print("----------------")
             print("\nThanks for playing! Goodbye.")
             break
     
@@ -60,14 +36,31 @@ def main():
 
         ai_action = random.choice(list(Choices))
 
+        print(f"\nYou chose: {usr_action.value}")
+        print(f"\nAI chose: {ai_action.value}")
+
         if usr_action == ai_action:
-            print(f"\nboth players chose {usr_action.value}, it's a tie!")
+            print(f"\n\nBoth players selected {usr_action.value}. It's a tie!")
 
-        elif BEATS[usr_action] == ai_action:
-            print(f"\n{MESSAGES[usr_action]}, you win!")
-            score["playerscore"] += 1
+        elif usr_action == Choices.ROCK:
+            if ai_action == Choices.SCISSORS:
+                print("\n\nRock smashes scissors, you win!")
 
-        else:
-            print(f"\n{MESSAGES[ai_action]}, you lose!") 
-            score["aiscore"] += 1
+            else:
+                print("\n\nPaper covers rock! you lose.")
+
+        elif usr_action == Choices.PAPER:
+            if ai_action == Choices.ROCK:
+                print("\n\nPaper covers rock, you win!")
+
+            else:
+                print("\n\nScissors cuts paper! you lose.")
+
+        elif usr_action == Choices.SCISSORS:
+            if ai_action == Choices.PAPER:
+                print("\n\nScissors cuts paper, you win!")
+
+            else:
+                print("\n\nRock smashes scissors! you lose.")
+    
 main()
