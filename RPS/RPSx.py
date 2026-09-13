@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/bin/bash
 
 import os
 import time
@@ -10,8 +10,9 @@ class Choices(Enum):
     PAPER = "paper"
     SCISSORS = "scissors"
 
-# Clears screen on Windows ('cls') or Unix/Linux/macOS ('clear')
-os.system('cls' if os.name == 'nt' else 'clear')
+def clear_screen():
+    # Clears screen on Windows ('cls') or Unix/Linux/macOS ('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 print("\n-----------------------------")
 print("\n--------START  GAME----------")
@@ -19,11 +20,45 @@ print("\n-----------------------------")
 print("You know the rules, press q to quit")
 
 def main():
+    score = {
+            "aiscore": 0,
+            "playerscore": 0
+            
+            }
+    # Dictionary defines what beats what
+    BEATS = {
+        Choices.ROCK: Choices.SCISSORS,
+        Choices.PAPER: Choices.ROCK,
+        Choices.SCISSORS: Choices.PAPER
+    }
+
+    # Defines win messages
+    MESSAGES = {
+    Choices.ROCK: "Rock smashes scissors",
+    Choices.PAPER: "Paper covers rock",
+    Choices.SCISSORS: "Scissors cuts paper"
+    }
+
     while True:
+        clear_screen()
+
+        print("---------------------------------------------")
+        print(f"  AI SCORE: {score['aiscore']}   |   YOUR SCORE: {score['playerscore']}")
+        print("---------------------------------------------")
+        print(" Rules: Rock, Paper, Scissors. Press 'q' to quit.")
+        print("---------------------------------------------")
+
         usr_input = input("\nEnter a choice (rock, paper, scissors): ").lower().strip()
 
         # Handle the quit option
         if usr_input == 'q':
+            print("\n-------------------")
+            print("AI's FINAL SCORE:")
+            print(score["aiscore"])
+            print("-------------------")
+            print("YOUR FINAL SCORE:")
+            print(score["playerscore"])
+            print("-------------------")
             print("\nThanks for playing! Goodbye.")
             break
     
@@ -36,31 +71,15 @@ def main():
 
         ai_action = random.choice(list(Choices))
 
-        print(f"\nYou chose: {usr_action.value}")
-        print(f"\nAI chose: {ai_action.value}")
-
         if usr_action == ai_action:
-            print(f"\n\nBoth players selected {usr_action.value}. It's a tie!")
+            print(f"\nboth players chose {usr_action.value}, it's a tie!")
 
-        elif usr_action == Choices.ROCK:
-            if ai_action == Choices.SCISSORS:
-                print("\n\nRock smashes scissors, you win!")
+        elif BEATS[usr_action] == ai_action:
+            print(f"\n{MESSAGES[usr_action]}, you win!")
+            score["playerscore"] += 1
 
-            else:
-                print("\n\nPaper covers rock! you lose.")
-
-        elif usr_action == Choices.PAPER:
-            if ai_action == Choices.ROCK:
-                print("\n\nPaper covers rock, you win!")
-
-            else:
-                print("\n\nScissors cuts paper! you lose.")
-
-        elif usr_action == Choices.SCISSORS:
-            if ai_action == Choices.PAPER:
-                print("\n\nScissors cuts paper, you win!")
-
-            else:
-                print("\n\nRock smashes scissors! you lose.")
-    
+        else:
+            print(f"\n{MESSAGES[ai_action]}, you lose!") 
+            score["aiscore"] += 1
+        time.sleep(1.5)
 main()
